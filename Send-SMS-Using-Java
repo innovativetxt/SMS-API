@@ -1,0 +1,38 @@
+package sendsms_innovative;
+import java.net.*;
+import java.io.*;
+public class URLConnDemo {
+    public static void main(String[] args) {
+    String request = "http://rest.innovativetxt.com/smsapi/index.php?to=923226101777&
+from=CompanyName&text='Your Message'&api_key=XXXXXXX&api_secret=XXXXXXXX";
+     try
+      { 
+         URL url = new URL(request);
+         URLConnection urlConnection = url.openConnection();
+         HttpURLConnection connection = null;
+         if(urlConnection instanceof HttpURLConnection)
+         {
+            connection = (HttpURLConnection) urlConnection;
+         }
+         else
+         {
+            System.out.println("Please enter an HTTP URL.");
+            return;
+         }
+         BufferedReader in = new BufferedReader(
+         new InputStreamReader(connection.getInputStream()));
+         String urlString = "";
+         String current;
+         while((current = in.readLine()) != null)
+         {
+            urlString += current;
+         }
+         System.out.println(urlString);
+      }catch(IOException e)
+      {
+         e.printStackTrace();
+      }
+    }
+}
+
+For more details visit http://www.innovativetxt.com/services/sms_api_gateway.htm
