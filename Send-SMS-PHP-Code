@@ -1,0 +1,19 @@
+<?php 
+// Innovative Text API URL
+$postUrl = "http://rest.innovativetxt.com/smsapi/index.php";
+//Formatted data 
+$fields = “to=xxxx&from=xxxx& 
+text=xxxx&api_key=KEY&api_secret=API SECRET”
+// In this example, POST request was made using PHP's CURL
+$ch = curl_init(); 
+curl_setopt($ch, CURLOPT_URL, $postUrl); 
+curl_setopt($ch, CURLOPT_POST, 1); 
+curl_setopt($ch, CURLOPT_POSTFIELDS, $fields); 
+//Response of the POST request 
+$response = curl_exec($ch); 
+curl_close($ch); 
+//Write out the response
+echo $response; 
+?>
+
+For more details visit http://www.innovativetxt.com/services/sms_api_gateway.htm
